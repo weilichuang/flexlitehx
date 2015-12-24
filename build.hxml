@@ -1,0 +1,73 @@
+-cp src
+-swf-version 17
+-swf-header 1024:768:60:0xffffff
+-D advanced-telemetry
+
+--each
+
+-swf bin/AlertTest.swf
+-main AlertTest
+
+--next
+-swf bin/AnimationTest.swf
+-main AnimationTest
+
+--next
+-swf bin/ButtonTest.swf
+-main ButtonTest
+
+--next
+-swf bin/ComboboxTest.swf
+-main ComboboxTest
+
+--next
+-swf bin/DragManagerTest.swf
+-main DragManagerTest
+
+--next
+-swf bin/ListTest.swf
+-main ListTest
+
+--next
+-swf bin/RepeatBitmapTest.swf
+-main RepeatBitmapTest
+
+--next
+-swf bin/ScrollerTest.swf
+-main ScrollerTest
+
+--next
+-swf bin/SliderTest.swf
+-main SliderTest
+
+--next
+-swf bin/TabBarTest.swf
+-main TabBarTest
+
+--next
+-swf bin/TabNavigatorTest.swf
+-main TabNavigatorTest
+
+--next
+-swf bin/TextAreaTest.swf
+-main TextAreaTest
+
+--next
+-swf bin/TitleWindowTest.swf
+-main TitleWindowTest
+
+--next
+-swf bin/TreeTest.swf
+-main TreeTest
+
+--next
+-swf bin/DropDownListTest.swf
+-main DropDownListTest
+
+--next
+-swf bin/ColorPickerTest.swf
+-main ColorPickerTest
+
+--next
+-swf bin/NumericStepperTest.swf
+-main NumericStepperTest

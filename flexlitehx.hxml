@@ -1,0 +1,7 @@
+-cp src
+-swf bin/flexlitehx.swf
+-swf-header 800:600:60:FFFFFF
+--flash-strict
+-swf-version 16.0
+-main ScrollerTest
+-D advanced-telemetry
