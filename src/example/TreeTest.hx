@@ -1,4 +1,4 @@
-package;
+package example;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.Lib;
@@ -97,5 +97,5 @@ class TreeTest extends AppContainer
 }
 
 
-@:bitmap("resource/dir.gif") class DIR extends BitmapData { }
-@:bitmap("resource/file.png") class FILE extends BitmapData {}
+@:bitmap("../asset/dir.gif") class DIR extends BitmapData { }
+@:bitmap("../asset/file.png") class FILE extends BitmapData {}

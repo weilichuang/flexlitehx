@@ -1,4 +1,4 @@
-package;
+package example;
 import flash.events.MouseEvent;
 import flash.Lib;
 import flexlite.collections.ArrayCollection;

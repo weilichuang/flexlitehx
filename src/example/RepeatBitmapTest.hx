@@ -1,4 +1,4 @@
-package;
+package example;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.Lib;
@@ -46,4 +46,4 @@ class RepeatBitmapTest extends AppContainer
 }
 
 
-@:bitmap("resource/wood.jpg") class REPEAT extends BitmapData { }
+@:bitmap("../asset/wood.jpg") class REPEAT extends BitmapData { }

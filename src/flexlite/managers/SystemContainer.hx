@@ -50,12 +50,12 @@ class SystemContainer implements IContainer
         return up - lower;
     }
 	
-	private function getUpperBoundIndex():Int
+	private inline function getUpperBoundIndex():Int
 	{
 		return Reflect.getProperty(owner, upperBoundReference);
 	}
 	
-	private function getLowerBoundIndex():Int
+	private inline function getLowerBoundIndex():Int
 	{
 		return Reflect.getProperty(owner, lowerBoundReference);
 	}
@@ -73,7 +73,7 @@ class SystemContainer implements IContainer
 	*/
     public function addElement(element : IVisualElement) : IVisualElement
     {
-        var index : Int = Reflect.field(owner, Std.string(upperBoundReference));
+        var index : Int = Reflect.getProperty(owner, Std.string(upperBoundReference));
         if (element.parent == cast owner) 
             index--;
 			

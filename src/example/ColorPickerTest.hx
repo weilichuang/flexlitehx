@@ -1,4 +1,4 @@
-package;
+package example;
 import flash.events.Event;
 import flash.Lib;
 import flexlite.components.ColorPicker;
@@ -47,4 +47,4 @@ class ColorPickerTest extends AppContainer
 }
 
 
-@:bitmap("resource/dir.gif") class DIR extends BitmapData { }
+@:bitmap("../asset/dir.gif") class DIR extends BitmapData { }

@@ -1,4 +1,4 @@
-package;
+package example;
 
 import flash.display.InteractiveObject;
 import flash.events.Event;

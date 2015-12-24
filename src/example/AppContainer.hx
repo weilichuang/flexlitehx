@@ -1,4 +1,4 @@
-package;
+package example;
 import flexlite.core.Injector;
 import flexlite.core.Theme;
 import flexlite.managers.SystemManager;

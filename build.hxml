@@ -6,68 +6,68 @@
 --each
 
 -swf bin/AlertTest.swf
--main AlertTest
+-main example.AlertTest
 
 --next
 -swf bin/AnimationTest.swf
--main AnimationTest
+-main example.AnimationTest
 
 --next
 -swf bin/ButtonTest.swf
--main ButtonTest
+-main example.ButtonTest
 
 --next
 -swf bin/ComboboxTest.swf
--main ComboboxTest
+-main example.ComboboxTest
 
 --next
 -swf bin/DragManagerTest.swf
--main DragManagerTest
+-main example.DragManagerTest
 
 --next
 -swf bin/ListTest.swf
--main ListTest
+-main example.ListTest
 
 --next
 -swf bin/RepeatBitmapTest.swf
--main RepeatBitmapTest
+-main example.RepeatBitmapTest
 
 --next
 -swf bin/ScrollerTest.swf
--main ScrollerTest
+-main example.ScrollerTest
 
 --next
 -swf bin/SliderTest.swf
--main SliderTest
+-main example.SliderTest
 
 --next
 -swf bin/TabBarTest.swf
--main TabBarTest
+-main example.TabBarTest
 
 --next
 -swf bin/TabNavigatorTest.swf
--main TabNavigatorTest
+-main example.TabNavigatorTest
 
 --next
 -swf bin/TextAreaTest.swf
--main TextAreaTest
+-main example.TextAreaTest
 
 --next
 -swf bin/TitleWindowTest.swf
--main TitleWindowTest
+-main example.TitleWindowTest
 
 --next
 -swf bin/TreeTest.swf
--main TreeTest
+-main example.TreeTest
 
 --next
 -swf bin/DropDownListTest.swf
--main DropDownListTest
+-main example.DropDownListTest
 
 --next
 -swf bin/ColorPickerTest.swf
--main ColorPickerTest
+-main example.ColorPickerTest
 
 --next
 -swf bin/NumericStepperTest.swf
--main NumericStepperTest
+-main example.NumericStepperTest

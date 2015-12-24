@@ -1,4 +1,4 @@
-package;
+package example;
 import flash.display.DisplayObject;
 import flash.events.Event;
 import flash.events.MouseEvent;
