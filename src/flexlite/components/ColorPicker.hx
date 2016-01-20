@@ -109,16 +109,25 @@ class ColorPicker extends SkinnableComponent
 	{
 		if ( _dropDownController == value )
 			return _dropDownController;
+			
+		if(_dropDownController != null)
+		{
+			_dropDownController.removeEventListener( UIEvent.OPEN, dropDownController_openHandler );
+			_dropDownController.removeEventListener( UIEvent.CLOSE, dropDownController_closeHandler );
+		}
 
 		_dropDownController = value;
 
-		_dropDownController.addEventListener( UIEvent.OPEN, dropDownController_openHandler );
-		_dropDownController.addEventListener( UIEvent.CLOSE, dropDownController_closeHandler );
+		if(_dropDownController != null)
+		{
+			_dropDownController.addEventListener( UIEvent.OPEN, dropDownController_openHandler );
+			_dropDownController.addEventListener( UIEvent.CLOSE, dropDownController_closeHandler );
 
-		if ( openButton != null )
-			_dropDownController.openButton = openButton;
-		if ( dropDown != null )
-			_dropDownController.dropDown = dropDown;
+			if ( openButton != null )
+				_dropDownController.openButton = openButton;
+			if ( dropDown != null )
+				_dropDownController.dropDown = dropDown;
+		}
 			
 		return _dropDownController;
 	}
@@ -257,5 +266,14 @@ class ColorPicker extends SkinnableComponent
 		removeEventListener( UIEvent.UPDATE_COMPLETE, close_updateCompleteHandler );
 
 		dispatchEvent( new UIEvent( UIEvent.CLOSE ));
+	}
+	
+	override public function dispose():Void
+	{
+		this.dropDownController = null;
+		
+		removeEventListener( UIEvent.UPDATE_COMPLETE, open_updateCompleteHandler );
+		removeEventListener( UIEvent.UPDATE_COMPLETE, close_updateCompleteHandler );
+		super.dispose();
 	}
 }

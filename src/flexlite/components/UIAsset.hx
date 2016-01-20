@@ -224,32 +224,33 @@ class UIAsset extends UIComponent implements ISkinnableClient
     /**
 	* 获取测量大小
 	*/
-    private function getMeasuredSize() : Rectangle
-    {
-        var rect : Rectangle = new Rectangle();
-        if (Std.is(_skin, ILayoutElement)) 
-        {
-            rect.width = Lib.as(_skin, ILayoutElement).preferredWidth;
-            rect.height = Lib.as(_skin, ILayoutElement).preferredHeight;
-        }
-        else if (Std.is(_skin, IBitmapAsset)) 
-        {
-            rect.width = Lib.as(_skin, IBitmapAsset).measuredWidth;
-            rect.height = Lib.as(_skin, IBitmapAsset).measuredHeight;
-        }
-        else 
-        {
-            var oldScaleX : Float = _skin.scaleX;
-            var oldScaleY : Float = _skin.scaleY;
-            _skin.scaleX = 1;
-            _skin.scaleY = 1;
-            rect.width = _skin.width;
-            rect.height = _skin.height;
-            _skin.scaleX = oldScaleX;
-            _skin.scaleY = oldScaleY;
-        }
-        return rect;
-    }
+    private function getMeasuredSize( result : Rectangle = null ) : Rectangle
+	{
+		if ( result == null )
+			result = new Rectangle();
+		if ( Std.is(_skin,ILayoutElement) )
+		{
+			result.width = cast( _skin,ILayoutElement ).preferredWidth;
+			result.height = cast( _skin,ILayoutElement ).preferredHeight;
+		}
+		else if ( Std.is(_skin,IBitmapAsset) )
+		{
+			result.width = cast( _skin,IBitmapAsset ).measuredWidth;
+			result.height = cast( _skin,IBitmapAsset ).measuredHeight;
+		}
+		else
+		{
+			var oldScaleX : Float = _skin.scaleX;
+			var oldScaleY : Float = _skin.scaleY;
+			_skin.scaleX = 1;
+			_skin.scaleY = 1;
+			result.width = _skin.width;
+			result.height = _skin.height;
+			_skin.scaleX = oldScaleX;
+			_skin.scaleY = oldScaleY;
+		}
+		return result;
+	}
     
     
     
@@ -271,6 +272,7 @@ class UIAsset extends UIComponent implements ISkinnableClient
     /**
 	* @inheritDoc
 	*/
+	private static var tmpRect:Rectangle = new Rectangle();
     override private function updateDisplayList(unscaledWidth : Float, unscaledHeight : Float) : Void
     {
         super.updateDisplayList(unscaledWidth, unscaledHeight);
@@ -282,7 +284,7 @@ class UIAsset extends UIComponent implements ISkinnableClient
                 var layoutBoundsY : Float = 0;
                 if (Math.isNaN(aspectRatio)) 
                 {
-                    var rect : Rectangle = getMeasuredSize();
+                    var rect : Rectangle = getMeasuredSize(tmpRect);
                     if (rect.width == 0 || rect.height == 0) 
                         aspectRatio = 0;
                     else 
@@ -337,6 +339,13 @@ class UIAsset extends UIComponent implements ISkinnableClient
             }
         }
     }
+	
+	override public function dispose():Void
+	{
+		_skinName = null;
+		_skin = null;
+		super.dispose();
+	}
     
     /**
 	* @copy flexlite.components.Group#addChild()

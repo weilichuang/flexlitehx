@@ -92,5 +92,5 @@ class FlexLiteGlobals
 	* 是否屏蔽失效验证阶段和callLater方法延迟调用的所有报错。
 	* 建议在发行版中启用，避免因为一处报错引起全局的延迟调用失效。
 	*/
-    public static var catchCallLaterExceptions : Bool = false;
+    public static var catchCallLaterExceptions : Bool = true;
 }

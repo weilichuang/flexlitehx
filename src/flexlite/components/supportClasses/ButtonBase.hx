@@ -127,6 +127,7 @@ class ButtonBase extends SkinnableComponent
         useHandCursor = true;
         focusEnabled = true;
         autoMouseEnabled = false;
+		tabEnabled = false;
         addHandlers();
     }
     
@@ -372,7 +373,7 @@ class ButtonBase extends SkinnableComponent
     private function mouseEventHandler(event : Event) : Void
     {
         var mouseEvent : MouseEvent = cast(event, MouseEvent);
-        var _sw0_ = (event.type);        
+        var _sw0_:String = (event.type);        
 
         switch (_sw0_)
         {
@@ -573,6 +574,14 @@ class ButtonBase extends SkinnableComponent
         removeFromDisplayList(cast(labelDisplay, DisplayObject));
         labelDisplay = null;
     }
+	
+	override public function set_enabled( value : Bool ) : Bool
+	{
+		super.set_enabled(value);
+		this.buttonMode = this.enabled;
+		
+		return value;
+	}
 }
 
 

@@ -22,7 +22,7 @@
     <option directives="" />
     <option flashStrict="True" />
     <option noInlineOnDebug="True" />
-    <option mainClass="example.TitleWindowTest" />
+    <option mainClass="example.DropDownListTest" />
     <option enabledebug="True" />
     <option additional="-D advanced-telemetry" />
   </build>
@@ -33,7 +33,7 @@
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
     <compile path="src\ColorPickerTest.hx" />
-    <compile path="src\example\TitleWindowTest.hx" />
+    <compile path="src\example\DropDownListTest.hx" />
   </compileTargets>
   <!-- Assets to embed into the output SWF -->
   <library>

@@ -148,7 +148,7 @@ class SystemManager extends Group implements ISystemManager
     {
         if (!e.cancelable) 
         {
-            var _sw0_ = (e.keyCode);            
+            var _sw0_:UInt = e.keyCode;            
 
             switch (_sw0_)
             {

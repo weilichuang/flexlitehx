@@ -81,11 +81,7 @@ class LayoutManager extends EventDispatcher
             if (client.parent != null) 
             {
                 client.validateProperties();
-                if (!client.updateCompletePendingFlag) 
-                {
-                    updateCompleteQueue.insert(client);
-                    client.updateCompletePendingFlag = true;
-                }
+                insertToUpdateCompleteQueue(client);
             }
             client = invalidatePropertiesQueue.shift();
         }
@@ -120,11 +116,7 @@ class LayoutManager extends EventDispatcher
             if (client.parent != null) 
             {
                 client.validateSize();
-                if (!client.updateCompletePendingFlag) 
-                {
-                    updateCompleteQueue.insert(client);
-                    client.updateCompletePendingFlag = true;
-                }
+                insertToUpdateCompleteQueue(client);
             }
             client = invalidateSizeQueue.pop();
         }
@@ -158,11 +150,7 @@ class LayoutManager extends EventDispatcher
             if (client.parent != null) 
             {
                 client.validateDisplayList();
-                if (!client.updateCompletePendingFlag) 
-                {
-                    updateCompleteQueue.insert(client);
-                    client.updateCompletePendingFlag = true;
-                }
+                insertToUpdateCompleteQueue(client);
             }
             client = invalidateDisplayListQueue.shift();
         }
@@ -257,6 +245,15 @@ class LayoutManager extends EventDispatcher
 			doPhasedInstantiationCallBack();
     }
 	
+	private inline function insertToUpdateCompleteQueue( client : ILayoutManagerClient ) : Void
+	{
+		if ( !client.updateCompletePendingFlag )
+		{
+			updateCompleteQueue.insert( client );
+			client.updateCompletePendingFlag = true;
+		}
+	}
+	
     /**
 	* 使大于等于指定组件层级的元素立即应用属性 
 	* @param target 要立即应用属性的组件
@@ -281,11 +278,7 @@ class LayoutManager extends EventDispatcher
                 if (obj.parent != null) 
                 {
                     obj.validateProperties();
-                    if (!obj.updateCompletePendingFlag) 
-                    {
-                        updateCompleteQueue.insert(obj);
-                        obj.updateCompletePendingFlag = true;
-                    }
+                    insertToUpdateCompleteQueue(obj);
                 }
                 obj = Lib.as((invalidatePropertiesQueue.removeSmallestChild(target)), ILayoutManagerClient);
             }
@@ -302,11 +295,7 @@ class LayoutManager extends EventDispatcher
                 if (obj.parent != null) 
                 {
                     obj.validateSize();
-                    if (!obj.updateCompletePendingFlag) 
-                    {
-                        updateCompleteQueue.insert(obj);
-                        obj.updateCompletePendingFlag = true;
-                    }
+                    insertToUpdateCompleteQueue(obj);
                 }
                 if (invalidateClientPropertiesFlag) 
                 {
@@ -337,11 +326,7 @@ class LayoutManager extends EventDispatcher
                     if (obj.parent != null) 
                     {
                         obj.validateDisplayList();
-                        if (!obj.updateCompletePendingFlag) 
-                        {
-                            updateCompleteQueue.insert(obj);
-                            obj.updateCompletePendingFlag = true;
-                        }
+                        insertToUpdateCompleteQueue(obj);
                     }
                     if (invalidateClientPropertiesFlag) 
                     {

@@ -36,6 +36,7 @@ class DropDownListTest extends AppContainer
 		super.createChildren();
 		
 		var cbb:DropDownList = new DropDownList();
+		cbb.maxDropDownHeight = 200;
 		cbb.dataProvider = dp;
 		cbb.addEventListener(UIEvent.OPEN,onOpen);
 		addElement(cbb);
@@ -43,7 +44,7 @@ class DropDownListTest extends AppContainer
 		cbb.prompt = "请选择一项...";
 		cbb.horizontalCenter = 0;
 		cbb.y = 10;
-		for(i in 0...10)
+		for(i in 0...100)
 		{
 			dp.addItem("添加了元素：" + i);
 		}

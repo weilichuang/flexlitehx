@@ -21,7 +21,7 @@ class ItemRendererSkin extends VectorSkin
     public function new()
     {
         super();
-        states = ["up", "over", "down"];
+        states = ["up", "over", "down", "selected"];
         this.minHeight = 21;
         this.minWidth = 21;
     }
@@ -63,7 +63,7 @@ class ItemRendererSkin extends VectorSkin
                         0xFFFFFF, 1,
                         verticalGradientMatrix(0, 0, w, h));
                 textColor = VectorSkin.themeColors[0];
-            case "over", "down":
+            case "over", "down","selected":
                 drawRoundRect(
                         0, 0, w, h, 0,
                         VectorSkin.borderColors[0], 1,

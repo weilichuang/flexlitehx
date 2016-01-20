@@ -123,6 +123,7 @@ class ColorPickerSkin extends VectorSkin
 		dropDown.addElement( switchPanel );
 		//popUp
 		popUp = new PopUpAnchor();
+		popUp.checkStageBound = true;
 		popUp.closeDuration = 0;
 		popUp.openDuration = 0;
 		popUp.left = 0;

@@ -7,6 +7,7 @@ import flash.events.Event;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.Lib;
+import flexlite.core.FlexLiteGlobals;
 
 
 import flexlite.core.IInvalidating;
@@ -58,6 +59,27 @@ class PopUpAnchor extends UIComponent
 	* 自身已经添加到舞台标志
 	*/
     private var addedToStage : Bool = false;
+	
+	private var _checkStageBound : Bool = false;
+	
+	public var checkStageBound(get, set):Bool;
+
+	private inline function get_checkStageBound() : Bool
+	{
+		return _checkStageBound;
+	}
+
+	private inline function set_checkStageBound( value : Bool ) : Bool
+	{
+		if ( _checkStageBound == value )
+			return value;
+
+		_checkStageBound = value;
+
+		invalidateDisplayList();
+		
+		return value;
+	}
     
     private var _popUpHeightMatchesAnchorHeight : Bool = false;
     /**
@@ -368,6 +390,18 @@ class PopUpAnchor extends UIComponent
         var popUpPoint : Point = calculatePopUpPosition();
         popUp.x = popUpPoint.x;
         popUp.y = popUpPoint.y;
+		
+		if ( checkStageBound )
+		{
+			if ( popUp.x < 0 )
+				popUp.x = 0;
+			if ( popUp.y < 0 )
+				popUp.y = 0;
+			if ( popUp.x + popUp.width > FlexLiteGlobals.stage.stageWidth )
+				popUp.x = FlexLiteGlobals.stage.stageWidth - popUp.width;
+			if ( popUp.y + popUp.height > FlexLiteGlobals.stage.stageHeight )
+				popUp.y = FlexLiteGlobals.stage.stageHeight - popUp.height;
+		}
     }
     /**
 	* 开始播放动画

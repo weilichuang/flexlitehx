@@ -94,7 +94,7 @@ class DepthQueue
 			var keys = bin.items.keys();
             for (key in keys)
             {
-                client = Lib.as(key, ILayoutManagerClient);
+                client = cast(key, ILayoutManagerClient);
                 remove(client, maxDepth);
                 break;
             }
@@ -287,7 +287,7 @@ class DepthQueue
 /**
  * 列表项
  */
-class DepthBin
+@:final class DepthBin
 {
 	public var length : Int;
     public var items :ObjectMap<ILayoutManagerClient,Bool> = new ObjectMap<ILayoutManagerClient,Bool>();

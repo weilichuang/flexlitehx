@@ -899,10 +899,9 @@ class HorizontalLayout extends LayoutBase
         {
             done = true;
             
-            var unused : Float = spaceToDistribute -
-            (spaceForChildren * totalPercent / 100);
+            var unused : Float = spaceToDistribute - (spaceForChildren * totalPercent / 100);
             if (unused > 0) 
-                spaceToDistribute -= unused
+                spaceToDistribute -= unused;
             else 
 				unused = 0;
             

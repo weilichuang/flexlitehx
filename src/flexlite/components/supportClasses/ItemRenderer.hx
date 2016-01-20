@@ -124,7 +124,7 @@ class ItemRenderer extends ButtonBase implements IItemRenderer
     override private function getCurrentSkinState() : String
     {
         if (_selected) 
-            return "down";
+            return "selected";
         return super.getCurrentSkinState();
     }
 }

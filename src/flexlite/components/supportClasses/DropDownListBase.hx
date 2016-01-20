@@ -5,6 +5,7 @@ package flexlite.components.supportclasses;
 import flash.display.DisplayObject;
 import flash.events.MouseEvent;
 import flash.Lib;
+import flexlite.core.IVisualElement;
 
 
 import flexlite.collections.ICollection;
@@ -76,6 +77,29 @@ class DropDownListBase extends List
 	* 文本改变标志
 	*/
     private var labelChanged : Bool = false;
+	
+	private var _maxDropDownHeight : Int = 10000;
+	
+	public var maxDropDownHeight(get, set):Int;
+
+	private inline function set_maxDropDownHeight( value : Int ) : Int
+	{
+		_maxDropDownHeight = value;
+		if ( dropDown != null )
+		{
+			if ( Std.is(dropDown,IVisualElement) )
+			{
+				if(cast( dropDown,IVisualElement ).maxHeight > _maxDropDownHeight)
+					cast( dropDown,IVisualElement ).maxHeight = _maxDropDownHeight;
+			}
+		}
+		return _maxDropDownHeight;
+	}
+
+	private inline function get_maxDropDownHeight() : Int
+	{
+		return _maxDropDownHeight;
+	}
     
     /**
 	* @inheritDoc
@@ -192,9 +216,15 @@ class DropDownListBase extends List
             if (dropDownController != null) 
                 dropDownController.openButton = openButton;
         }
-        else if (instance == dropDown && dropDownController != null) 
+        else if (instance == dropDown) 
         {
-            dropDownController.dropDown = dropDown;
+			if ( Std.is(dropDown,IVisualElement ))
+			{
+				if(cast( dropDown,IVisualElement ).maxHeight > _maxDropDownHeight)
+					cast( dropDown,IVisualElement ).maxHeight = _maxDropDownHeight;
+			}
+			if ( dropDownController != null )
+				dropDownController.dropDown = dropDown;
         }
     }
     

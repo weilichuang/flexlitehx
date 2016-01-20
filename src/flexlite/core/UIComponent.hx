@@ -585,7 +585,10 @@ class UIComponent extends Sprite implements IUIComponent
             layoutHeightExplicitlySet = true;
         }
         
-        setActualSize(layoutWidth / this.scaleX, layoutHeight / this.scaleY);
+        if(this.scaleX == 1 && this.scaleY == 1)
+			setActualSize( layoutWidth, layoutHeight );
+		else
+			setActualSize( layoutWidth / this.scaleX, layoutHeight / this.scaleY );
     }
 	
     /**
@@ -974,11 +977,11 @@ class UIComponent extends Sprite implements IUIComponent
     {
         if (Std.is(child, ILayoutManagerClient)) 
         {
-            Lib.as(child, ILayoutManagerClient).nestLevel = 0;
+            cast(child, ILayoutManagerClient).nestLevel = 0;
         }
         if (Std.is(child, IUIComponent)) 
         {
-            Lib.as(child, IUIComponent).systemManager = null;
+            cast(child, IUIComponent).systemManager = null;
         }
     }
     
@@ -1826,6 +1829,15 @@ class UIComponent extends Sprite implements IUIComponent
 	{
 		removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
         removeEventListener(Event.ADDED_TO_STAGE, checkInvalidateFlag);
+		
+		for ( i in 0...this.numChildren)
+		{
+			var child : DisplayObject = this.getChildAt( i );
+			if ( Std.is(child,ILayoutElement ))
+			{
+				cast( child,ILayoutElement ).dispose();
+			}
+		}
 	}
     
 }

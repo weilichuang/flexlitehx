@@ -138,7 +138,7 @@ class TextBase extends UIComponent implements IDisplayText
 	*/
     private var embedFonts : Bool = false;
     
-    private var _fontFamily : String = "SimSun";
+    private var _fontFamily : String = "_sans";
     
     /**
 	* 字体名称 。默认值：SimSun
@@ -160,7 +160,7 @@ class TextBase extends UIComponent implements IDisplayText
         return value;
     }
     
-    private var _size : Int = 12;
+    private var _size : Int = 13;
     
     /**
 	* 字号大小,默认值12 。
