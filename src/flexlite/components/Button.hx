@@ -9,17 +9,17 @@ import flexlite.components.supportclasses.ButtonBase;
 @:meta(DXML(show="true"))
 class Button extends ButtonBase
 {
-    public function new()
-    {
-        super();
-    }
-    
-    /**
+	public function new()
+	{
+		super();
+	}
+
+	/**
 	* @inheritDoc
 	*/
-    override private function get_hostComponentKey() : Dynamic
-    {
-        return Button;
-    }
+	override private function get_hostComponentKey() : Dynamic
+	{
+		return Button;
+	}
 }
 

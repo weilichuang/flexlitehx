@@ -1,6 +1,4 @@
 package flexlite.components;
-
-
 /**
 * 项呈示器的主机组件接口
 * @author weilichuang
@@ -8,8 +6,8 @@ package flexlite.components;
 interface IItemRendererOwner
 {
 
-    /**
+	/**
 	* 更新项呈示器数据
 	*/
-    function updateRenderer(renderer : IItemRenderer, itemIndex : Int, data : Dynamic) : IItemRenderer;
+	function updateRenderer(renderer : IItemRenderer, itemIndex : Int, data : Dynamic) : IItemRenderer;
 }

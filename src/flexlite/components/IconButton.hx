@@ -1,6 +1,4 @@
 package flexlite.components;
-
-
 /**
  * @example
  * var iconButton:IconButton = new IconButton();
@@ -17,9 +15,9 @@ class IconButton extends Button
 	 */
 	@SkinPart
 	public var iconDisplay : UIAsset;
-	
+
 	public var icon(get, set):Dynamic;
-	
+
 	/**
 	 * 构造函数
 	 */
@@ -29,9 +27,6 @@ class IconButton extends Button
 	}
 
 	private var _icon : Dynamic;
-	
-	
-
 	/**
 	 * 要显示的图标，可以是类定义，位图数据，显示对象或路径字符。
 	 */

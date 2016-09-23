@@ -13,35 +13,35 @@ import flash.ui.Keyboard;
     /**
 	* 导航到文档的开头。 
 	*/
-    public static var HOME : Int = Keyboard.HOME;
+    public static inline var HOME : Int = 36;
     /**
 	* 导航到文档的末尾。 
 	*/
-    public static var END : Int = Keyboard.END;
+    public static inline var END : Int = 35;
     /**
 	* 向上导航一行或向上“步进”。 
 	*/
-    public static var UP : Int = Keyboard.UP;
+    public static inline var UP : Int = 38;
     /**
 	* 向上导航一行或向上“步进”。
 	*/
-    public static var DOWN : Int = Keyboard.DOWN;
+    public static inline var DOWN : Int = 40;
     /**
 	* 向上导航一行或向上“步进”。 
 	*/
-    public static var LEFT : Int = Keyboard.LEFT;
+    public static inline var LEFT : Int = 37;
     /**
 	* 向右导航一行或向右“步进”。
 	*/
-    public static var RIGHT : Int = Keyboard.RIGHT;
+    public static inline var RIGHT : Int = 39;
     /**
 	* 向上导航一页。
 	*/
-    public static var PAGE_UP : Int = Keyboard.PAGE_UP;
+    public static inline var PAGE_UP : Int = 33;
     /**
 	* 向下导航一页。
 	*/
-    public static var PAGE_DOWN : Int = Keyboard.PAGE_DOWN;
+    public static inline var PAGE_DOWN : Int = 34;
     /**
 	* 向左导航一页。
 	*/

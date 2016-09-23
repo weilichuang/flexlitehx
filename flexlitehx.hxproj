@@ -22,7 +22,7 @@
     <option directives="" />
     <option flashStrict="True" />
     <option noInlineOnDebug="True" />
-    <option mainClass="example.DropDownListTest" />
+    <option mainClass="example.TreeTest" />
     <option enabledebug="True" />
     <option additional="-D advanced-telemetry" />
   </build>
@@ -33,7 +33,24 @@
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
     <compile path="src\ColorPickerTest.hx" />
+    <compile path="src\example\TreeTest.hx" />
+    <compile path="src\example\TitleWindowTest.hx" />
+    <compile path="src\example\TextAreaTest.hx" />
+    <compile path="src\example\TabNavigatorTest.hx" />
+    <compile path="src\example\TabBarTest.hx" />
+    <compile path="src\example\SliderTest.hx" />
+    <compile path="src\example\ScrollerTest.hx" />
+    <compile path="src\example\RepeatBitmapTest.hx" />
+    <compile path="src\example\NumericStepperTest.hx" />
+    <compile path="src\example\ListTest.hx" />
     <compile path="src\example\DropDownListTest.hx" />
+    <compile path="src\example\DataGroupTest.hx" />
+    <compile path="src\example\DragManagerTest.hx" />
+    <compile path="src\example\ComboboxTest.hx" />
+    <compile path="src\example\ColorPickerTest.hx" />
+    <compile path="src\example\ButtonTest.hx" />
+    <compile path="src\example\AnimationTest.hx" />
+    <compile path="src\example\AlertTest.hx" />
   </compileTargets>
   <!-- Assets to embed into the output SWF -->
   <library>

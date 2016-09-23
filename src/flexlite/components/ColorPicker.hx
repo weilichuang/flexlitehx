@@ -28,13 +28,13 @@ class ColorPicker extends SkinnableComponent
 	 */
 	@SkinPart
 	public var openButton : ColorPickerButton;
-	
+
 	/**
 	 * [SkinPart]
 	 */
 	@SkinPart
 	public var dropDown:DisplayObject;
-	
+
 	/**
 	 * [SkinPart]
 	 */
@@ -53,27 +53,27 @@ class ColorPicker extends SkinnableComponent
 		super();
 		dropDownController = new DropDownController();
 	}
-	
+
 	public var selectColor(get, set):UInt;
 	private function get_selectColor():UInt
 	{
 		return _selectColor;
 	}
-	
+
 	private function set_selectColor(color:UInt):UInt
 	{
-		if(_selectColor == color)
+		if (_selectColor == color)
 			return _selectColor;
-		
+
 		_selectColor = color;
-		
-		if(openButton != null)
+
+		if (openButton != null)
 			openButton.fillColor = color;
-		if(switchPanel != null)
+		if (switchPanel != null)
 			switchPanel.selectColor = color;
-		
+
 		dispatchEvent(new Event(Event.CHANGE));
-		
+
 		return _selectColor;
 	}
 
@@ -94,7 +94,7 @@ class ColorPicker extends SkinnableComponent
 	}
 
 	private var _dropDownController : DropDownController;
-	
+
 	public var dropDownController(get, set):DropDownController;
 
 	/**
@@ -109,8 +109,8 @@ class ColorPicker extends SkinnableComponent
 	{
 		if ( _dropDownController == value )
 			return _dropDownController;
-			
-		if(_dropDownController != null)
+
+		if (_dropDownController != null)
 		{
 			_dropDownController.removeEventListener( UIEvent.OPEN, dropDownController_openHandler );
 			_dropDownController.removeEventListener( UIEvent.CLOSE, dropDownController_closeHandler );
@@ -118,17 +118,16 @@ class ColorPicker extends SkinnableComponent
 
 		_dropDownController = value;
 
-		if(_dropDownController != null)
+		if (_dropDownController != null)
 		{
 			_dropDownController.addEventListener( UIEvent.OPEN, dropDownController_openHandler );
 			_dropDownController.addEventListener( UIEvent.CLOSE, dropDownController_closeHandler );
-
 			if ( openButton != null )
 				_dropDownController.openButton = openButton;
 			if ( dropDown != null )
 				_dropDownController.dropDown = dropDown;
 		}
-			
+
 		return _dropDownController;
 	}
 
@@ -180,10 +179,9 @@ class ColorPicker extends SkinnableComponent
 		{
 			if ( dropDownController != null )
 				dropDownController.openButton = openButton;
-			
 			openButton.fillColor = selectColor;
 		}
-		else if(instance == switchPanel)
+		else if (instance == switchPanel)
 		{
 			switchPanel.addEventListener(Event.SELECT,onColorSelect);
 			switchPanel.selectColor = selectColor;
@@ -193,35 +191,34 @@ class ColorPicker extends SkinnableComponent
 			dropDownController.dropDown = dropDown;
 		}
 	}
-	
+
 	private function onColorSelect(event:Event):Void
 	{
 		this.selectColor = switchPanel.selectColor;
 		closeDropDown(true);
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
 	override private function partRemoved( partName : String, instance : Dynamic ) : Void
 	{
-		if(instance == switchPanel)
+		if (instance == switchPanel)
 		{
 			switchPanel.removeEventListener(Event.SELECT,onColorSelect);
 		}
-		
+
 		if ( dropDownController != null )
 		{
 			if ( instance == openButton )
 				dropDownController.openButton = null;
-			
 			if ( instance == dropDown )
 				dropDownController.dropDown = null;
 		}
 
 		super.partRemoved( partName, instance );
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
@@ -267,11 +264,11 @@ class ColorPicker extends SkinnableComponent
 
 		dispatchEvent( new UIEvent( UIEvent.CLOSE ));
 	}
-	
+
 	override public function dispose():Void
 	{
 		this.dropDownController = null;
-		
+
 		removeEventListener( UIEvent.UPDATE_COMPLETE, open_updateCompleteHandler );
 		removeEventListener( UIEvent.UPDATE_COMPLETE, close_updateCompleteHandler );
 		super.dispose();

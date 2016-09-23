@@ -133,7 +133,7 @@ class XMLCollection extends EventDispatcher implements ICollection implements IT
     /**
 	* @inheritDoc
 	*/
-    public function getItemIndex(item : Xml) : Int
+    public function getItemIndex(item : Dynamic) : Int
     {
         var length : Int = nodeList.length;
         for (i in 0...length)
@@ -203,7 +203,7 @@ class XMLCollection extends EventDispatcher implements ICollection implements IT
     /**
 	* @inheritDoc
 	*/
-    public function isItemOpen(item : Xml) : Bool
+    public function isItemOpen(item : Dynamic) : Bool
     {
         return _openNodes.indexOf(item) != -1;
     }
